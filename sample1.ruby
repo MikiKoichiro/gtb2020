@@ -19,15 +19,15 @@ def multhree(a,b,c)
   ans = mul(ans,c)
   return ans
 end
+def sub(a,b)
+  return a-b
+end
 def div(a)
   return a/2
 end
-1.step(10,1) do |i|
-  j = sumthree(i,i-1,2)
-  
-  puts j
-end
-1.step(10,1) do |i|
-  k = multhree(i,i-1,2)
-  puts k
-end
+puts sum(3,2)
+puts sub(3,2)
+puts mul(3,2)
+puts div(4,2)
+puts sumthree(2,3,4)
+puts sumthree(2,3,4)
