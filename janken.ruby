@@ -3,6 +3,7 @@
 # 0:グー, 1:チョキ, 2:パー
 myHand = 0
 cpuHand = 0
+result = 0
 def janken(myHand, cpuHand)
   myHand = 0
   cpuHand = rand 3
@@ -33,13 +34,21 @@ def janken(myHand, cpuHand)
       result = 0
     end
   end
+  
+  result
+end
+def display(n)
   # 出力
-  if result == -1
+  if n == -1
     puts "負け"
-  elsif result == 0
+  elsif n == 0
     puts "引き分け"
   else
     puts "勝ち"
   end
 end
-janken(myHand, cpuHand)
+5.times do
+  result = janken(myHand, cpuHand)
+  display(result)
+end
+  
