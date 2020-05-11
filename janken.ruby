@@ -1,18 +1,24 @@
 # 0:グー、１：チョキ、２：パー
 myHand = 2
 cpuHand = 2
+result = 0
 if((myHand-cpuHand)%2 == 0)
   if(myHand > cpuHand)
-    puts "勝ち"
+    result = 1
   elsif(myHand < cpuHand)
-    puts "負け"
-  else
-    puts "引き分け"
+    result = -1
   end
 else
   if(myHand < cpuHand)
-    puts "勝ち"
+    result = 1
   else
-    puts "負け"
+    result = -1
   end
+end
+if(result = -1)
+  puts "負け"
+elsif(result = 1)
+  puts "勝ち"
+else
+  puts "引き分け"
 end
