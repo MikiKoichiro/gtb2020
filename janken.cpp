@@ -7,7 +7,7 @@ class JankenGame{
     int result;
     void janken(int player1, int player2);
     int judge(int player1, int player2);
-    void display(int result);
+    virtual void display(int result) = 0;
 
 };
     void JankenGame::janken(int player1, int player2){
@@ -41,7 +41,10 @@ class JankenGame{
             }
         }
     }
-    void JankenGame::display(int result){
+class Japanese: public JankenGame{
+    public:
+    Japanese(){ }
+    void display(int result){
         if(result == -1){
             std::cout << "負け" << std::endl;
         }else if(result == 0){
@@ -50,13 +53,38 @@ class JankenGame{
             std::cout << "勝ち" << std::endl;
         }
     }
-
-
+};
+class English: public JankenGame{
+    public:
+    English(){}
+    virtual void display(int result){
+        if(result == -1){
+            std::cout << "lose" << std::endl;
+        }else if(result == 0){
+            std::cout << "drow" << std::endl;
+        }else{
+            std::cout << "win" << std::endl;
+        }
+    }
+};
+class Spanish: public JankenGame{
+    public:
+    Spanish(){}
+    virtual void display(int result){
+        if(result == -1){
+            std::cout << "perdiendo" << std::endl;
+        }else if(result == 0){
+            std::cout << "dibujar" << std::endl;
+        }else{
+            std::cout << "ganar" << std::endl;
+        }
+    }
+};
 int main(){
     srand((unsigned) time(NULL));
     int player1 = 0;
     int player2 = rand() % 3;
-    JankenGame Janken;
-    Janken.janken(player1, player2);
+    JankenGame *lang = new Spanish();
+    lang->janken(player1, player2);
     
 }
